@@ -1,0 +1,720 @@
+/* Christ City Church v8 (v7 layout plus the 2026-11-05 revisions). Layout measured from mosaic.org at 1440, 2560 and 390 wide.
+   Desktop: every box placed on Mosaic's 1382 grid, scaled by --u (container capped at 2175 like Mosaic).
+   Phone: every box placed from the 390 measurements, scaled by --m. */
+:root{--c:min(calc(100vw - 58px),2175px);--u:calc(var(--c) / 1382);--v:calc(100vw / 1440);
+--navy:#0B427A;--cream:#FAF7F1;--line:rgba(0,0,0,.12);
+--ff:'Manrope','Helvetica Neue',Arial,sans-serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:#000;font-family:var(--ff);font-size:18px;line-height:1.4;letter-spacing:-.02em;font-weight:500;-webkit-font-smoothing:antialiased}
+img{display:block}
+a{color:inherit}
+h1,h2,h3,h4,p{margin:0}
+section,.ft{position:relative;overflow:hidden}
+.in{position:relative;width:var(--c);margin:0 auto;height:calc(var(--sh) * var(--u))}
+.a{position:absolute;margin:0;left:calc((var(--x) - 29) * var(--u));top:calc(var(--y) * var(--u));width:calc(var(--w) * var(--u))}
+.a[style*="--h:"]{height:calc(var(--h) * var(--u))}
+img.a,.fill{object-fit:cover}
+.fill{width:100%;height:100%}
+.ph{filter:none}
+.c{text-align:center}
+
+/* type, Mosaic's measured sizes (fluid between 1440 and 2560 the way Mosaic is) */
+.f134{font-size:calc(.09725 * var(--c));line-height:1;font-weight:800;letter-spacing:-.01em}
+.f59{font-size:calc(.04305 * var(--c));line-height:1;font-weight:800;letter-spacing:-.01em}
+.f59b{font-size:calc(.04291 * var(--c));line-height:1;font-weight:800;letter-spacing:-.01em}
+.f44{font-size:calc(20.86px + .01668 * var(--c));line-height:1.128;font-weight:800;letter-spacing:-.01em}
+.f41{font-size:calc(.02952 * var(--c));line-height:1;font-weight:800;letter-spacing:-.01em}
+.f28{font-size:calc(19.15px + .00667 * var(--c));line-height:1.2;font-weight:800;letter-spacing:-.01em}
+.f25{font-size:calc(18.76px + .00445 * var(--c));line-height:1.4;font-weight:800;letter-spacing:-.36px}
+.f21{font-size:calc(18.39px + .00222 * var(--c));line-height:1.19;font-weight:800;letter-spacing:-.01em}
+.f18{font-size:18px;line-height:1.4}
+.f18 p+p{margin-top:25.2px}
+
+/* buttons */
+.hb,.ob,.tb{display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:.02em;text-transform:uppercase;line-height:1.2;transition:background .2s,color .2s}
+.hb{border:2px solid #fff;border-radius:20px;color:#fff}
+.hb:hover{background:#fff;color:#000}
+.ob{border:2px solid #000;border-radius:7.2px;padding:0 10px}
+.tb{border:1px solid #000;border-radius:7.2px}
+.ob:hover,.tb:hover{background:#000;color:#fff}
+
+/* header */
+.hd{position:absolute;z-index:20;left:0;right:0;top:calc(40px + (100vw - 1440px) * .0107);height:74px;display:flex;align-items:center;padding-left:calc(29px + (100vw - 1440px) * .0196);color:#fff}
+.logo{display:flex;align-items:center;gap:6px;text-decoration:none;color:#fff;height:22px}
+.logo svg{width:22px;height:22px}
+.logo span{font-weight:800;font-size:17px;letter-spacing:.02em;white-space:nowrap}
+.nav{display:flex;gap:30px;margin-left:27px}
+.dd{position:relative}
+.dd>button{display:flex;align-items:center;gap:10px;height:30px;padding:0;background:none;border:0;color:#fff;font:700 calc(18.39px + .00222 * var(--c))/1.2 var(--ff);letter-spacing:-.01em;text-transform:uppercase;cursor:pointer}
+.dd>button i{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-3px) rotate(45deg)}
+.menu{--mc:min(calc(100vw - 58px),1382px);display:block;visibility:hidden;opacity:0;position:absolute;top:100%;left:0;min-width:240px;padding-top:12px;transition:opacity .14s .2s,visibility 0s .34s}
+.menu::after{content:"";position:absolute;left:0;right:0;top:12px;bottom:0;background:#fff;border:1px solid rgba(0,0,0,.14);z-index:-1}
+.menu a{text-shadow:none;position:relative;display:block;padding:9px 22px;color:#000;text-decoration:none;font-size:calc(18.39px + .00222 * var(--mc));line-height:1.19;font-weight:800;letter-spacing:-.01em}
+.menu a:first-child{margin-top:8px}.menu a:last-child{margin-bottom:8px}
+.menu a:hover,.menu a:focus-visible{text-decoration:underline;text-underline-offset:3px}
+.dd.open .menu,.dd:hover .menu,.dd:focus-within .menu{visibility:visible;opacity:1;transition-delay:0s}
+.give{position:absolute;right:calc(28px + (100vw - 1440px) * .0205);top:0;width:176px;height:74px;border:2px solid #fff;border-radius:20px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;font-size:18px;color:#fff;transition:background .2s,color .2s}
+.give:hover{background:#fff;color:#000}
+.burger{display:none}
+.sheet{display:none}
+
+/* hero: the original video, no filters, under a light see-through Christ City blue */
+.hero{background:#000;color:#fff}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* Michael's picks 2026-11-05: brightness 79%, color 134%, shade 0%, black, bottom gradient 16%, white text. Old values: no filter, flat shade rgba(0,0,0,.13), no gradient. */
+.hero .tint{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0) 30%,rgba(0,0,0,.16) 100%)}
+.hero h1,.hero .tag{text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.hero .tag em{font-weight:600}
+.hero .hb{background:rgba(0,0,0,.3)}
+/* v12 brand color: logo outer two rings navy, center mark light blue, blue hovers */
+.logo svg path:first-child{fill:#fff}
+.logo svg path:last-child{fill:#fff}
+.hero .hb,.give{transition:background .25s ease,border-color .25s ease,color .25s ease}
+.hero .hb:hover,.give:hover{background:#4F7FC1;border-color:#4F7FC1;color:#fff}
+.hero .in{z-index:1}
+.hero h1{font-weight:800}
+.l1,.l2{display:block;text-align:center;line-height:1;letter-spacing:-.01em;white-space:nowrap}
+.l1{font-size:calc(.0999 * var(--c))}
+.l2{font-size:calc(.1345 * var(--c))}
+.tag{display:flex;justify-content:center;gap:2.2em;font-size:18px;line-height:1.4;white-space:nowrap}
+.tag em{font-weight:400}
+
+/* blue */
+.blue{background:var(--navy);color:#fff}
+.pick button.sel{width:100%;height:100%;background:#000;color:#fff;border:0;border-radius:10px;font:700 16px/1 var(--ff);letter-spacing:.5px;text-transform:uppercase;cursor:pointer}
+.opts{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;color:#000;z-index:5;border-radius:0 0 10px 10px;overflow:hidden}
+.opts a{display:block;padding:14px 20px;text-decoration:none;font-size:16px;border-top:1px solid var(--line)}
+.opts a:hover{background:var(--cream)}
+.pick.open .opts{display:block}
+.pick.open .sel{border-radius:10px 10px 0 0}
+
+/* form: photo sits low so the whole banner and both men show; text and form stack above it */
+.form{background:#000;color:#fff;overflow:hidden}
+.form .bg{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.form .fade{position:absolute;inset:0;background:rgba(0,0,0,.42)}
+.form .kit input{height:calc(56 * var(--u));margin-bottom:calc(13 * var(--u))}
+.form .kit button{height:calc(56 * var(--u))}
+.form .kit input::placeholder{color:#555}
+.kit input{display:block;width:100%;height:calc(74 * var(--u));margin:0 0 calc(18 * var(--u));padding:0 20px;background:#fff;border:1px solid var(--line);border-radius:0;font:400 18px var(--ff);letter-spacing:-.02em;color:#000}
+.kit button{display:block;width:100%;height:calc(72 * var(--u));background:#000;color:#fff;border:0;border-radius:7.2px;font:700 18px var(--ff);letter-spacing:.36px;text-transform:uppercase;cursor:pointer}
+.kit button:hover{background:#222}
+.sent{font-size:22px;font-weight:700;text-align:center}
+
+/* first night strip: slow scroll to the left, loops forever */
+.strip{height:calc(274 * var(--v));background:#fff;overflow:hidden}
+.track{display:flex;width:max-content;height:100%;animation:slide 120s linear infinite}
+.track img{width:calc(205 * var(--v));height:100%;object-fit:cover;flex:none}
+.track{will-change:transform;backface-visibility:hidden}
+.crop{overflow:hidden}
+.crop .up{transform:scale(1.12);transform-origin:50% 90%}
+@keyframes slide{to{transform:translateX(-50%)}}
+.strip2 img{width:100%;height:100%;object-fit:cover}
+.strip2{display:grid;grid-template-columns:repeat(6,1fr);gap:calc(4 * var(--v));height:calc(300 * var(--v));padding-top:calc(4 * var(--v));background:#fff}
+@media (prefers-reduced-motion:reduce){.track,.run{animation:none}}
+
+/* color pops: full color, never grayscale */
+.pops{display:grid;grid-template-columns:repeat(6,1fr);height:calc(360 * var(--v));background:#000}
+.pops img{width:100%;height:100%;object-fit:cover}
+
+/* ticker */
+.ticker{background:var(--navy);color:#fff;height:calc(73 * var(--u));overflow:hidden;display:flex;align-items:center}
+.run{display:flex;white-space:nowrap;animation:tick 40s linear infinite}
+.run span{font-weight:700;font-size:18px;letter-spacing:.02em;padding-right:64px}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* about */
+.about h2{color:#fff}
+.about .ph{left:calc(50% - 50vw);width:100vw}
+
+/* house churches */
+.lochead{background:#fff;border-top:1px solid #E6E9EE}
+.hwrap{width:var(--c);margin:0 auto;padding:calc(83 * var(--u)) 0 calc(56 * var(--u))}
+.hq{margin-top:calc(44 * var(--u))}
+.hl{max-width:640px;margin:14px auto 0}
+.steps{list-style:none;margin:calc(40 * var(--u)) auto 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:calc(40 * var(--u));max-width:calc(1150 * var(--u))}
+.steps li{border-top:2px solid #000;padding-top:16px}
+.steps span{display:block;margin-bottom:8px}
+.cards{background:#fff;padding-bottom:calc(90 * var(--u))}
+.row{width:var(--c);margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:calc(22 * var(--u))}
+.card{display:flex;flex-direction:column;align-items:center}
+.map{position:relative;width:100%;aspect-ratio:230/297;overflow:hidden;border-radius:calc(30 * var(--u));background:#e8e6e1}
+.map iframe{position:absolute;left:0;top:-90px;width:100%;height:calc(100% + 90px);border:0}
+.card h3{margin-top:calc(24 * var(--u))}
+.card p{margin-top:10px;min-height:2.8em}
+.card .tb{margin-top:calc(22 * var(--u));width:100%;height:calc(59 * var(--u))}
+.row{width:calc(1260 * var(--u));gap:calc(72 * var(--u))}
+.map{border-radius:0;aspect-ratio:1}
+.map a,.map img{display:block;width:100%;height:100%;object-fit:cover}
+.map img{filter:grayscale(1)}
+.osm{width:var(--c);margin:calc(22 * var(--u)) auto 0;text-align:center;font-size:12px;color:#777}
+.card h3{margin-top:calc(16 * var(--u));font-size:calc(19 * var(--u))}
+.card p{font-size:calc(13 * var(--u))}
+.card .tb{margin-top:calc(14 * var(--u));height:calc(42 * var(--u));font-size:calc(13 * var(--u))}
+.cr{border-radius:calc(30 * var(--u))}
+.r15{border-radius:calc(15 * var(--u))}
+
+/* footer */
+.ft{background:#000;color:#fff}
+.fc strong{display:block;margin-bottom:calc(34 * var(--u))}
+.fc a{display:block;color:var(--cream);text-decoration:underline;text-underline-offset:3px;line-height:1.19}
+.fn{display:block}
+.kroh{text-align:left;padding:0;background:none;border:0;cursor:pointer;font-family:var(--ff);color:var(--cream);text-decoration:underline;text-underline-offset:3px;font-weight:700;letter-spacing:.04em}
+.kroh:hover{color:#fff}
+
+/* KROH lightbox */
+.kb{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px}
+.kb.on{display:flex;animation:fade .3s ease}
+.kbx{position:relative;width:min(440px,100%);background:#000;color:#fff;border:1px solid rgba(255,255,255,.25);padding:44px 36px 34px;text-align:center}
+.kbx strong{display:block;font-size:30px;line-height:1.05;font-weight:800;letter-spacing:-.01em}
+.kbx p{margin:16px auto 26px;max-width:330px;font-size:18px;line-height:1.4;color:var(--cream)}
+.kbm{display:flex;align-items:center;justify-content:center;height:56px;background:#fff;color:#000;border-radius:7.2px;text-decoration:none;font-weight:800;font-size:16px;letter-spacing:.06em}
+.kbm:hover{background:var(--cream)}
+.kbx span{display:block;margin-top:14px;font-size:15px;color:rgba(255,255,255,.7)}
+.kbx .px{color:#999}
+
+/* popup, built to mosaic.org's measured numbers */
+.pop{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.3);display:none;align-items:center;justify-content:center;padding:16px}
+.pop.on{display:flex;animation:fade .4s ease}
+@keyframes fade{from{opacity:0}}
+
+/* phone, from the 390 measurements */
+@media (max-width:767px){
+:root{--m:calc(100vw / 390)}
+body{font-size:16px}
+.in{width:100%;height:calc(var(--psh) * var(--m))}
+.a{left:calc(var(--px) * var(--m));top:calc(var(--py) * var(--m));width:calc(var(--pw) * var(--m))}
+.a[style*="--h:"]{height:calc(var(--ph) * var(--m))}
+.a:not([style*="--px"]){display:none}
+.f134{font-size:calc(67.1 * var(--m))}
+.f59{font-size:calc(35.8 * var(--m))}
+.f59b{font-size:calc(60.3 * var(--m))}
+.f44{font-size:calc(31.19 * var(--m))}
+.f41{font-size:calc(41.5 * var(--m))}
+.f28{font-size:calc(22.08 * var(--m));line-height:1.171}
+.f25{font-size:calc(20.05 * var(--m))}
+.f21{font-size:calc(18.03 * var(--m))}
+.f18{font-size:16px}
+.f18 p+p{margin-top:22.4px}
+.hb,.ob,.tb{font-size:16px}
+.ob,.tb{border-radius:6.4px}
+.hd{top:calc(46 * var(--m));height:30px;padding-left:calc(23 * var(--m))}
+.logo{height:15px;gap:4px}
+.logo svg{width:15px;height:15px}
+.logo span{font-size:13px}
+.nav,.give{display:none}
+.burger{display:flex;flex-direction:column;justify-content:center;gap:8px;position:absolute;left:calc(320 * var(--m));top:0;width:47px;height:30px;padding:0 6px;background:none;border:0;cursor:pointer}
+.burger i{display:block;height:2px;background:#fff}
+.sheet{position:fixed;inset:0;z-index:40;background:#000;color:#fff;display:flex;flex-direction:column;justify-content:center;gap:18px;padding:0 23px;transform:translateY(-100%);transition:transform .35s ease}
+.sheet.open{transform:none}
+.sheet a{font-size:34px;font-weight:700;text-decoration:none;text-transform:uppercase}
+.sheet .x{position:absolute;top:40px;right:23px;background:none;border:0;color:#fff;font-size:40px;cursor:pointer}
+.hero .hmark{width:120vw}
+.l1{font-size:calc(52 * var(--m))}
+.l2{font-size:calc(72 * var(--m))}
+.tag{font-size:16px;gap:1.4em}
+.kit input{height:calc(66 * var(--m));margin-bottom:calc(16 * var(--m));font-size:16px}
+.kit button{height:calc(64 * var(--m));border-radius:6.4px;font-size:16px}
+.form .bg{top:0;height:100%;object-position:50% 50%}
+.form .fade{background:rgba(0,0,0,.42)}
+.form .kit input{height:calc(54 * var(--m));margin-bottom:calc(12 * var(--m))}
+.form .kit button{height:calc(54 * var(--m))}
+.strip{height:calc(240 * var(--m))}
+.track{animation-duration:90s}
+.track img{width:calc(180 * var(--m))}
+.strip2{grid-template-columns:repeat(3,1fr);grid-auto-rows:calc(170 * var(--m));height:auto;gap:calc(3 * var(--m));padding-top:calc(3 * var(--m))}
+.pops{grid-template-columns:repeat(3,1fr);height:auto}
+.pops img{height:calc(195 * var(--m))}
+.ticker{height:calc(61 * var(--m))}
+.run span{font-size:16px}
+.hwrap{width:auto;padding:calc(80 * var(--m)) calc(23 * var(--m)) calc(36 * var(--m))}
+.hq{margin-top:calc(34 * var(--m))}
+.steps{grid-template-columns:1fr;gap:calc(22 * var(--m));margin-top:calc(28 * var(--m))}
+.cards{padding-bottom:calc(60 * var(--m))}
+.row{width:auto;display:flex;gap:calc(14 * var(--m));overflow-x:auto;scroll-snap-type:x mandatory;padding:0 calc(23 * var(--m));scrollbar-width:none}
+.row::-webkit-scrollbar{display:none}
+.card{flex:none;width:calc(260 * var(--m));scroll-snap-align:center}
+.map{border-radius:0}
+.osm{width:auto;padding:0 calc(23 * var(--m));text-align:left}
+.card h3{margin-top:calc(20 * var(--m))}
+.card .tb{margin-top:calc(18 * var(--m));height:calc(48 * var(--m))}
+.row{width:auto}
+.card{width:calc(165 * var(--m))}
+.row{gap:calc(22 * var(--m))}
+.map{border-radius:0}
+.card h3{margin-top:calc(12 * var(--m));font-size:calc(18 * var(--m))}
+.card p{font-size:calc(13 * var(--m))}
+.card .tb{margin-top:calc(10 * var(--m));height:calc(38 * var(--m));font-size:calc(12 * var(--m))}
+.cr{border-radius:calc(30 * var(--m))}
+.r15{border-radius:calc(15 * var(--m))}
+.fc strong{margin-bottom:calc(31 * var(--m))}
+.fn{text-align:center}
+.kroh{text-align:left}
+}
+
+/* What's Next: full bleed motion blur photo, white type on a dark layer (2026-11-05) */
+.wn{background:#3a2e26 url(img/whats-next-bg.jpg) center/cover no-repeat;color:#fff}
+.wn::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.42)}
+.wn .in{z-index:1}
+.wn .ob{border-color:#fff;color:#fff}
+.wn .ob:hover{background:#fff;color:#000}
+/* v15 text-only popup (no photos), site fonts and colors */
+.pb{position:relative;width:min(640px,100%);max-height:96vh;overflow:auto;background:var(--cream);border-top:6px solid var(--navy);box-shadow:0 24px 70px rgba(0,0,0,.28)}
+.pb .px{position:absolute;top:8px;right:8px;padding:8px 14px;border:0;background:none;color:#6b6b6b;font:400 28px/1 var(--ff);cursor:pointer}
+.pb .px:hover{color:var(--navy)}
+.pt{padding:68px 56px 60px;text-align:center;font-family:var(--ff);letter-spacing:0}
+.pt .eb{display:flex;justify-content:center;align-items:center;gap:14px;margin:0;font-size:14px;line-height:1;font-weight:700;letter-spacing:.18em;color:var(--navy)}
+.pt .eb i{width:28px;height:1px;background:var(--navy);opacity:.45}
+.pt .eb b{font-weight:700;opacity:.6}
+.pt h2{margin:26px 0 0;font-size:68px;line-height:.98;font-weight:800;letter-spacing:-.035em;text-transform:uppercase;color:var(--navy)}
+.pt p:not(.eb){margin:24px auto 36px;max-width:440px;font-size:19px;line-height:1.5;letter-spacing:-.01em;font-weight:500;color:#2b2b2b}
+.pf{display:flex;gap:12px;max-width:480px;margin:0 auto}
+.pf input{flex:1;min-width:0;height:56px;padding:0 18px;background:#fff;border:1px solid rgba(0,0,0,.22);border-radius:8px;font:500 17px var(--ff);color:#1a1a1a}
+.pf input:focus{outline:2px solid var(--navy);outline-offset:1px;border-color:var(--navy)}
+.pf button{height:56px;padding:0 28px;background:var(--navy);color:#fff;border:0;border-radius:8px;font:800 14px var(--ff);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.pf button:hover{background:#0a3868}
+.pf .sent{width:100%;margin:0;color:var(--navy);font-weight:700;font-size:18px}
+@media (max-width:767px){
+.pt{padding:56px 24px 36px}
+.pt .eb{font-size:12px;gap:10px}
+.pt .eb i{width:18px}
+.pt h2{font-size:44px;margin-top:22px}
+.pt p:not(.eb){font-size:17px;margin:18px auto 26px}
+.pf{flex-direction:column;gap:12px}
+.pf input,.pf button{width:100%}
+}
+.pop .pf input{display:block;flex:1 1 auto;width:auto;height:56px;margin:0;padding:0 18px;border-radius:8px;font:500 17px var(--ff);letter-spacing:-.01em}
+.pop .pf button{display:block;flex:none;width:auto;height:56px;padding:0 28px;border-radius:8px;font:800 14px var(--ff);letter-spacing:.12em}
+@media (max-width:767px){
+.pop .pf input,.pop .pf button{width:100%;height:56px;margin:0;font-size:16px}
+.pop .pf button{font-size:14px}
+}
+@media (max-width:767px){
+.pt h2{font-size:clamp(28px,9.6vw,46px);white-space:nowrap}
+.pop{padding:16px}
+.pb{width:100%}
+}
+@media (max-width:767px){
+.pt .eb{white-space:nowrap;font-size:11.5px;letter-spacing:.14em;gap:8px}
+.pt .eb i{display:none}
+}
+.pt h2{margin-top:0}
+/* v15 KROH popup redesign */
+.kb .kbx{width:min(480px,100%);padding:36px 40px 40px;text-align:left;border:1px solid rgba(255,255,255,.18);border-radius:0}
+.kb .kbx .px{position:absolute;top:10px;right:10px;width:44px;height:44px;padding:0;margin:0;display:flex;align-items:center;justify-content:center;background:none;border:0;border-radius:50%;color:rgba(255,255,255,.6);cursor:pointer;transition:color .15s,background .15s}
+.kb .kbx .px:hover{color:#fff;background:rgba(255,255,255,.1)}
+.kb .kbx .px:focus-visible,.kb .kbm:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.kb .kbn{margin:0 0 28px;max-width:none;font-size:15px;line-height:1;font-weight:800;letter-spacing:.32em;color:#fff}
+.kb .kbx strong{font-size:44px;line-height:1;letter-spacing:-.015em;font-weight:800;text-align:left}
+.kb .kbp{margin:18px 0 32px;max-width:380px;font-size:17px;line-height:1.5;color:rgba(255,255,255,.78);text-align:left}
+.kb .kbr{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.kb .kbm{display:inline-flex;height:50px;padding:0 30px;width:auto;font-size:15px;letter-spacing:.08em;border-radius:7.2px}
+.kb .kbx .kbr span{display:inline;margin:0;font-size:15px;color:rgba(255,255,255,.62)}
+@media (max-width:767px){
+.kb .kbx{padding:28px 24px 30px}
+.kb .kbn{margin-bottom:22px}
+.kb .kbx strong{font-size:clamp(30px,9.4vw,38px)}
+.kb .kbp{margin:14px 0 26px;font-size:16px}
+.kb .kbr{gap:14px}
+}
+/* v15 even line breaks: balance centered text, pretty for body copy */
+h1,h2,h3,h4,.c,.pt,.pt p,.kbx strong,.kbp,.fn,.sent,.hb,.ob,.tb,.credit,.osm{text-wrap:balance}
+p,li,blockquote{text-wrap:pretty}
+.c p,.pt p,.kbp,.c.a,p.c{text-wrap:balance}
+.pt p:not(.eb){max-width:400px}
+
+/* v15 IN-BETWEEN WIDTHS (2026-11-10, cc-site-resize-fix). The two absolute layouts are only drawn right at their own widths:
+   phone at 360 to 430 and desktop at 1280 and up. Everywhere else (under 360, 431 to 1279) the sections stack in normal flow,
+   so text can never land on other text. Phone 390 and desktop 1440 are untouched. */
+@media (min-width:1100px) and (max-width:1439px){
+/* desktop layout scaled down: type shrinks by the same factor as the boxes, so it is an exact zoom of the 1440 look */
+.f44{font-size:calc(44 * var(--u))}
+.f28{font-size:calc(28.4 * var(--u))}
+.f25{font-size:calc(24.9 * var(--u));letter-spacing:calc(-.36 * var(--u))}
+.f21{font-size:calc(21.5 * var(--u))}
+.f18,.tag,.hb,.ob,.tb,.kit input,.kit button{font-size:calc(18 * var(--u))}
+.f18 p+p{margin-top:calc(25.2 * var(--u))}
+.pick button.sel{font-size:calc(16 * var(--u))}
+.card h3{font-size:max(15px,calc(19 * var(--u)))}
+.card p,.card .tb{font-size:max(12px,calc(13 * var(--u)))}
+}
+@media (max-width:374px),(min-width:431px) and (max-width:1099px){
+:root{--pad:clamp(20px,5vw,56px)}
+.in{width:auto;height:auto;margin:0;padding:0 var(--pad)}
+.a,.a[style*="--h:"]{position:static;left:auto;top:auto;width:auto;height:auto;margin:0}
+.a.pick{position:relative}
+/* hero */
+.hero .in{min-height:clamp(600px,75vw,820px);display:flex;flex-wrap:wrap;justify-content:center;align-content:center;align-items:center;gap:16px;padding-top:150px;padding-bottom:70px}
+.hero h1,.hero .tag{flex:0 0 100%}
+.hero .tag{white-space:normal;flex-wrap:wrap;gap:4px 1.6em}
+.hero .hb{flex:0 1 320px;width:auto;height:59px}
+/* blue */
+.blue .in{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding-top:clamp(36px,6vw,72px);padding-bottom:clamp(44px,7vw,90px)}
+.blue img.a{width:100%;height:auto;aspect-ratio:221/355;object-fit:cover}
+.blue .a:not(img){grid-column:1/-1;width:100%;max-width:570px;justify-self:center}
+.blue h2{margin-top:clamp(24px,4vw,44px)}
+.blue .a.pick{height:72px;margin-top:8px}
+/* sign-up form */
+.form .in{max-width:calc(560px + 2 * var(--pad));margin:0 auto;padding-top:clamp(56px,9vw,110px);padding-bottom:clamp(56px,9vw,110px)}
+.form .in>p{margin:16px auto 0;max-width:430px}
+.form .in>form{margin:30px auto 0;max-width:420px}
+.form .kit input{height:54px;margin-bottom:12px}
+.form .kit button{height:54px}
+/* intro: photo, line, two cards */
+.intro .in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(20px,4vw,48px);row-gap:20px;padding-top:clamp(36px,6vw,80px);padding-bottom:clamp(44px,7vw,90px)}
+.intro .in>:nth-child(1){grid-column:1/-1;grid-row:1;aspect-ratio:3/2}
+.intro .in>:nth-child(2){grid-column:1/-1;grid-row:2;max-width:720px;justify-self:start;text-align:left}
+.intro .in>:nth-child(3){grid-column:1;grid-row:3}
+.intro .in>:nth-child(4){grid-column:1;grid-row:4}
+.intro .in>:nth-child(5){grid-column:1;grid-row:5}
+.intro .in>:nth-child(6){grid-column:2;grid-row:3}
+.intro .in>:nth-child(7){grid-column:2;grid-row:4}
+.intro .in>:nth-child(8){grid-column:2;grid-row:5}
+.intro a.a:not(.ob){display:block;aspect-ratio:3/2}
+.intro .a.ob{height:59px}
+/* our story photo with the big title */
+.about{padding-top:clamp(28px,5.7vw,82px)}
+.about .in{display:grid;padding:0}
+.about .in>*{grid-area:1/1}
+.about .ph{left:auto;width:100%;height:clamp(300px,52vw,640px)}
+.about h2{align-self:start;justify-self:center;margin-top:clamp(14px,2.8vw,40px);z-index:1}
+/* who we are */
+.who .in{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,5vw,64px);align-items:start;padding-top:clamp(40px,6vw,80px);padding-bottom:clamp(44px,7vw,90px)}
+.who .in>.a{grid-column:1}
+.who .in>img.a{grid-column:2;grid-row:1/span 6;width:100%;height:auto;aspect-ratio:760/428;object-fit:cover}
+.who h2{margin:clamp(28px,4vw,52px) 0 14px}
+.who .in>h2:first-child{margin-top:0}
+/* house churches */
+.hwrap{width:auto;margin:0 var(--pad);padding:clamp(48px,7vw,83px) 0 clamp(32px,5vw,56px)}
+.steps{width:auto;max-width:560px;grid-template-columns:1fr;gap:22px;margin:30px auto 0}
+.cards{padding-bottom:clamp(48px,7vw,90px)}
+.row{width:auto;display:flex;flex-wrap:wrap;justify-content:center;gap:28px 20px;overflow:visible;scroll-snap-type:none;padding:0 var(--pad)}
+.card{flex:0 0 min(100%,190px);width:auto}
+.card h3{font-size:18px;margin-top:14px}
+.card p{font-size:14px}
+.card .tb{height:44px;font-size:13px;margin-top:12px}
+.osm{width:auto;margin-top:22px;padding:0 var(--pad);text-align:center}
+/* pray and give */
+.watch .in{display:flex;flex-direction:column;gap:14px;max-width:calc(640px + 2 * var(--pad));margin:0 auto;padding-top:clamp(48px,7vw,90px);padding-bottom:clamp(56px,8vw,100px)}
+.watch .a.tb{height:60px}
+.watch h3{margin-top:30px}
+.watch .in>h3:first-child{margin-top:0}
+.watch img.a{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
+.watch img.a:nth-of-type(2){order:1;margin-top:30px}
+.watch img.a:nth-of-type(1){margin-top:30px}
+/* footer */
+.ft .in{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(20px,4vw,48px);row-gap:28px;padding-top:56px;padding-bottom:48px}
+.ft .in>.fn,.ft .in>.rr,.ft .in>.c,.ft .in>.kroh{grid-column:1/-1}
+.ft .in>.fn{order:0;text-align:left}
+.ft .in>.fc{order:1}
+.ft .in>.rr{order:2}
+.ft .in>.c{order:3}
+.ft .in>.kroh{order:4;justify-self:start}
+}
+@media (max-width:374px),(min-width:431px) and (max-width:767px){
+.intro .in{grid-template-columns:minmax(0,1fr)}
+.intro .in>*{grid-column:1!important;grid-row:auto!important}
+.intro .in>:nth-child(1){aspect-ratio:3/2}
+.who .in{grid-template-columns:minmax(0,1fr)}
+.who .in>img.a{grid-column:1;grid-row:auto;margin-top:36px}
+.ft .in{grid-template-columns:minmax(0,1fr)}
+.ft .in>.fn{order:3;text-align:center}
+.ft .in>.c{order:4}
+.ft .in>.kroh{order:5}
+}
+@media (min-width:900px) and (max-width:1099px){
+.steps{max-width:none;grid-template-columns:repeat(3,1fr);gap:32px}
+}
+/* v15 Find Belonging: site paper, left aligned, title level with the top of the photos, button level with the bottom */
+.blue.find{background:#fff;color:#000}
+.blue.find h2,.blue.find p{text-align:left}
+.blue.find .a:not(img){justify-self:stretch;max-width:none}
+.blue.find p{font-weight:500;letter-spacing:-.02em;text-transform:none;max-width:430px}
+.blue.find .pick button.sel{background:#000;border-radius:7.2px;font:800 18px/1 var(--ff);letter-spacing:.02em;transition:background .2s}
+.blue.find .pick button.sel:hover,.blue.find .pick.open button.sel{background:var(--navy)}
+.blue.find .a.pick{max-width:420px;justify-self:start}
+.blue.find .opts{border-radius:0 0 7.2px 7.2px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.blue.find .pick.open .sel{border-radius:7.2px 7.2px 0 0}
+@media (max-width:1099px){
+.blue.find .opts{top:auto;bottom:100%;border-radius:7.2px 7.2px 0 0;box-shadow:0 -8px 24px rgba(0,0,0,.12)}
+.blue.find .pick.open .sel{border-radius:0 0 7.2px 7.2px}
+}
+@media (max-width:767px){.blue.find .pick button.sel{font-size:16px}}
+/* v15 Civitas / Pray With Us / Help Us Start block (2026-11-10): title sits right on its line, no blank line */
+.intro p.a strong{display:block;margin-bottom:10px}
+/* v15 COME CURIOUS POPUP matched to the site (2026-11-10, cc-popup-match-site). Same values as the sections around it:
+   white panel like Find Belonging, black Manrope 800 caps heading, 18px black body, the square 1px-line input and black
+   7.2px button from the First Sunday form, the hero's black .42 scrim. Navy only on keyboard focus. Overrides the older popup rules above. */
+.pop{background:rgba(0,0,0,.42)}
+.pop .pb{width:min(560px,100%);border-top:0;border-radius:0;background:#fff;box-shadow:none}
+.pop .pb .px{top:8px;right:8px;width:44px;height:44px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;background:none;color:#000;font:500 30px/1 var(--ff);transition:background .2s,color .2s}
+.pop .pb .px:hover{background:#000;color:#fff}
+.pop .pb .px:focus-visible,.pop .pf button:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+.pop .pt{padding:72px 56px 56px;letter-spacing:-.02em}
+.pop .pt h2{margin:0;font-size:52px;white-space:nowrap;line-height:1;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;color:#000}
+.pop .pt p:not(.eb){max-width:400px;margin:22px auto 32px;font-size:18px;line-height:1.4;font-weight:500;letter-spacing:-.02em;color:#000}
+.pop .pf{display:block;max-width:none;margin:0}
+.pop .pf input{display:block;width:100%;height:56px;margin:0 0 13px;padding:0 20px;background:#fff;border:1px solid var(--line);border-radius:0;font:400 18px var(--ff);letter-spacing:-.02em;color:#000}
+.pop .pf input::placeholder{color:#555}
+.pop .pf input:focus{outline:2px solid var(--navy);outline-offset:0;border-color:var(--navy)}
+.pop .pf button{display:block;width:100%;height:56px;padding:0;background:#000;color:#fff;border:0;border-radius:7.2px;font:700 18px var(--ff);letter-spacing:.36px;text-transform:uppercase;cursor:pointer}
+.pop .pf button:hover{background:#222}
+.pop .pf .sent{color:#000}
+@media (max-width:767px){
+.pop .pt{padding:60px 24px 32px}
+.pop .pt h2{font-size:calc(35.8 * var(--m));white-space:nowrap}
+.pop .pt p:not(.eb){font-size:16px;margin:16px auto 26px}
+.pop .pf input,.pop .pf button{height:54px;font-size:16px}
+.pop .pf button{border-radius:6.4px}
+}
+/* v15 FOLDS (2026-11-10, cc-site-declutter). Michael: "too much stuff on the first page... make those minimize and then
+   they can expand by clicking something." Find Belonging and the Civitas / Pray / Help block show a title, one line and a
+   See more button; the button opens the rest in place. Without JavaScript both stay open and the button is hidden. */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.fold{background:#fff;color:#000}
+.fold .fh{width:var(--c);margin:0 auto;padding:calc(46 * var(--u)) 0;display:grid;grid-template-columns:calc(755 * var(--u)) minmax(0,1fr) calc(221 * var(--u));grid-template-areas:"t l b";align-items:center}
+.js .fold .fh{cursor:pointer}
+.fold .fh h2{grid-area:t;margin:0;text-align:left}
+.fold .fh p{grid-area:l;margin:0;max-width:none;padding-right:calc(40 * var(--u));text-align:left}
+.fb{grid-area:b;display:none;align-items:center;justify-content:center;gap:12px;width:100%;height:calc(59 * var(--u));padding:0;background:none;border:1px solid #000;border-radius:7.2px;color:#000;font:800 18px/1.2 var(--ff);letter-spacing:.02em;text-transform:uppercase;cursor:pointer;transition:background .2s ease,color .2s ease,transform .16s ease-out}
+.js .fb{display:flex}
+@media (hover:hover) and (pointer:fine){.fb:hover{background:#000;color:#fff}}
+.fb:active{transform:scale(.97)}
+.fb:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+.fb i{position:relative;width:14px;height:14px;flex:none}
+.fb i::before,.fb i::after{content:"";position:absolute;left:0;right:0;top:6px;height:2px;background:currentColor;transition:transform .25s cubic-bezier(.23,1,.32,1)}
+.fb i::after{transform:rotate(90deg)}
+.fold.open .fb i::after{transform:rotate(0deg)}
+.fclip{min-height:0;overflow:hidden}
+.js .fbody{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .3s cubic-bezier(.32,.72,0,1),visibility 0s .3s}
+.js .fold.open .fbody{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .45s cubic-bezier(.32,.72,0,1),visibility 0s}
+.js .fclip>.in{opacity:0;transition:opacity .18s ease}
+.js .fold.open .fclip>.in{opacity:1;transition:opacity .35s ease .08s}
+.fold .in{padding-top:0}
+/* the house church list opens upward so the fold never cuts it off */
+.fold.find .opts{top:auto;bottom:100%;border-radius:7.2px 7.2px 0 0;box-shadow:0 -8px 24px rgba(0,0,0,.12)}
+.fold.find .pick.open .sel{border-radius:0 0 7.2px 7.2px}
+@media (prefers-reduced-motion:reduce){.js .fbody,.js .fold.open .fbody,.js .fclip>.in,.js .fold.open .fclip>.in,.fb,.fb i::before,.fb i::after{transition:none}}
+@media (min-width:1100px) and (max-width:1439px){.fb{font-size:calc(18 * var(--u))}}
+@media (max-width:1099px){
+.fold{--gut:clamp(20px,5vw,56px)}
+.fold .fh{width:auto;padding:clamp(34px,5vw,46px) var(--gut);grid-template-columns:minmax(0,1fr) 221px;grid-template-areas:"t b" "l b";column-gap:32px;row-gap:10px}
+.fold .fh p{padding-right:0;max-width:520px}
+.fb{height:59px}
+}
+@media (min-width:768px) and (max-width:1099px){.fold.find .in{grid-template-columns:repeat(6,minmax(0,1fr))}}
+@media (max-width:767px){
+.fold .fh{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "l" "b";row-gap:10px}
+.fb{margin-top:14px;font-size:16px;border-radius:6.4px}
+}
+@media (min-width:375px) and (max-width:430px){
+.fold{--gut:calc(23 * var(--m))}
+.fold .fh{padding-top:calc(38 * var(--m));padding-bottom:calc(38 * var(--m))}
+.fb{height:calc(59 * var(--m))}
+}
+
+/* v15 HOUSE CHURCHES DARK (matches hero and footer) */
+.hbg{background:#8e8e8e url(img/bg-houses-city-03.jpg) center/cover no-repeat;background-blend-mode:multiply;color:#fff}
+.hbg .lochead,.hbg .cards{background:none}
+.hbg h2,.hbg h3,.hbg p,.hbg span{color:#fff}
+.hbg .steps li{border-top-color:#fff}
+.hbg .tb{border-color:#fff;color:#fff}
+.hbg .tb:hover{background:#fff;color:#000}
+
+/* v15 caption under Who We Are photo */
+.cap{text-align:right;font-weight:700}
+
+/* v15 ONE SYSTEM (2026-11-10, cc-site-unify). Michael: "looks like two or three different sites, not fully joined into one."
+   The rules, for every page:
+   1 COLOR   the hero film is the only colour picture on the site. Every photo is black and white (bw- files, one grade).
+   2 RHYTHM  dark, white, dark, white, dark: hero and ticker / Find Belonging, Our Story, Who We Are / House Churches /
+             Pray With Us and Help Us Start / First Sunday and footer. Dark = a city photo with white centered type.
+             White = black type set left, with people photos.
+   3 TYPE    black on white, white on dark. No blue type anywhere.
+   4 BLUE    one bar a page: the ticker under the hero here, the header bar on the inner pages. Plus hover and keyboard focus.
+   5 NO FOLDS  Find Belonging is open (title, line, Find a House Church). The .fold and .fb rules above are no longer used. */
+.about h2{color:#000}
+.kit button:hover,.pop .pf button:hover{background:var(--navy)}
+.find{background:#fff;color:#000;overflow:visible;z-index:6}
+.find .fh{width:var(--c);margin:0 auto;padding:calc(46 * var(--u)) 0;display:grid;grid-template-columns:calc(510 * var(--u)) minmax(0,1fr) calc(300 * var(--u));grid-template-areas:"t l b";align-items:center}
+.find .fh h2{grid-area:t;margin:0}
+.find .fh p{grid-area:l;margin:0;max-width:calc(440 * var(--u))}
+.find .pick{grid-area:b;position:relative;height:calc(59 * var(--u))}
+.find .pick button.sel{border-radius:7.2px;font:800 18px/1 var(--ff);letter-spacing:.02em;transition:background .2s ease,transform .16s ease-out}
+.find .pick button.sel:active{transform:scale(.98)}
+.find .pick button.sel:focus-visible{outline:2px solid var(--navy);outline-offset:3px}
+@media (hover:hover) and (pointer:fine){.find .pick button.sel:hover{background:var(--navy)}}
+.find .pick.open button.sel{background:var(--navy);border-radius:7.2px 7.2px 0 0}
+.find .opts{border-radius:0 0 7.2px 7.2px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.find .opts a{font-size:18px}
+@media (min-width:1100px) and (max-width:1439px){.find .pick button.sel,.find .opts a{font-size:calc(18 * var(--u))}}
+@media (max-width:1099px){
+.find .fh{width:auto;padding:clamp(34px,5vw,46px) clamp(20px,5vw,56px);grid-template-columns:minmax(0,1fr) 300px;grid-template-areas:"t b" "l b";column-gap:32px;row-gap:10px}
+.find .fh p{max-width:520px}
+.find .pick{height:59px}
+}
+@media (max-width:767px){
+.find .fh{grid-template-columns:minmax(0,1fr);grid-template-areas:"t" "l" "b"}
+.find .pick{margin-top:14px}
+.find .pick button.sel,.find .opts a{font-size:16px}
+.find .pick button.sel{border-radius:6.4px}
+.find .pick.open button.sel{border-radius:6.4px 6.4px 0 0}
+}
+@media (min-width:375px) and (max-width:430px){
+.find .fh{padding:calc(38 * var(--m)) calc(23 * var(--m))}
+.find .pick{height:calc(59 * var(--m))}
+}
+@media (prefers-reduced-motion:reduce){.find .pick button.sel{transition:none}}
+
+/* v28 ONE SITE (2026-11-10, cc-site-audit). Michael: color hero + blue ticker, then everything else black and white, "feels like two sites".
+   What the inspo churches do (Mosaic, Citizens, Oasis): the brand blue is the GROUND of their dark sections, not one thin bar, and people photos stay in colour.
+   1 BLUE IS THE GROUND  ticker, House Churches, First Sunday and the footer are all the one navy family (ticker #0B427A, grounds through it, footer #051A33).
+   2 COLOUR CARRIES DOWN  the people strip sits straight under the ticker in full colour, so the hero's colour runs into the page before the first black and white photo.
+   3 ONE SECTION GONE  FIND BELONGING (a title already in the ticker, a line already in the hero and First Sunday, five links already in House Churches and the menu).
+   Everything else from v27 stands: black type on white, black and white place photos, one footer. */
+.strip{background:var(--navy);height:calc(300 * var(--v))}
+.track img{filter:none}
+.hbg{background-color:#4a73ad;background-blend-mode:multiply}
+.about{--sh:641!important;--psh:300!important}
+.about .ph{--y:0!important;--py:0!important}
+.about h2{--y:40!important;--py:22!important}
+.about{padding-top:0}
+/* THE THREAD (from the House Churches look Michael loves, and the prospectus: navy and cream grounds, blue panels, people in natural tone).
+   Places = a black and white photo multiplied over the brand blue #4a73ad (House Churches, Our Story, First Sunday). People stay natural. */
+.form{background:#4a73ad}
+.form .bg{filter:none;mix-blend-mode:multiply}
+.form .fade{display:none}
+/* v28b: ticker + strip moved to sit just above First Sunday, smaller (Michael: too much colour back to back at the top). */
+/* #36557F = the median colour measured off the House Churches background (52,81,122), so ticker, strip and both photo sections are the one blue. */
+.ticker{height:clamp(34px,calc(46 * var(--u)),52px);background:#36557F}
+.run span{font-size:15px;padding-right:48px}
+.strip{height:clamp(110px,calc(170 * var(--v)),210px);background:#36557F}
+.track img{width:clamp(80px,calc(122 * var(--v)),151px)}
+@media (max-width:767px){.ticker{height:calc(40 * var(--m))}.run span{font-size:14px}.strip{height:calc(140 * var(--m))}.track img{width:calc(100 * var(--m))}}
+.form .kit button{background:#051A33}
+.form .kit button:hover{background:#fff;color:#051A33}
+.about{background:#4a73ad}
+.about .ph{mix-blend-mode:multiply}
+.about h2{color:#fff}
+.ft{background:#051A33}
+.sheet{background:#051A33}
+/* v28c phone spacing: air above HELP US START, even footer gaps, footer text left aligned */
+@media (max-width:767px){
+.watch h3.a:nth-of-type(2){--py:940!important}
+.watch p.a:nth-of-type(2){--py:1012!important}
+.watch a.tb:nth-of-type(3){--py:1156!important}
+.watch a.tb:nth-of-type(4){--py:1228!important}
+.ft{--psh:925!important}
+.ft .fc:nth-of-type(1){--py:56!important}
+.ft .fc:nth-of-type(2){--py:258!important}
+.ft .fc:nth-of-type(3){--py:439!important}
+.ft .rr{--py:646!important}
+.ft .fn{--py:726!important;text-align:left!important}
+.ft .c{--py:796!important;text-align:left!important}
+.ft .kroh{--py:846!important}
+}
+/* v28d: air under HELP US START before the ticker; a soft dark wash behind the nav only (hero video untouched) */
+.watch{--sh:1090!important}
+@media (max-width:767px){.watch{--psh:1661!important}}
+.hd::before{content:"";position:absolute;z-index:-1;left:0;right:0;top:-60px;height:215px;background:linear-gradient(rgba(0,0,0,.6) 0,rgba(0,0,0,.55) 60%,rgba(0,0,0,0) 100%);pointer-events:none}
+.hd{text-shadow:0 1px 8px rgba(0,0,0,.45)}
+@media (max-width:767px){.hd::before{top:calc(-46 * var(--m));height:150px}}
+
+/* v29 */
+.ft{padding-top:calc(64 * var(--u))}
+@media (max-width:767px){.ft{padding-top:0}}
+
+/* v30 (2026-11-10, cc-story-dropdown): Our Story title becomes A CHURCH OF HOUSE CHURCHES + FIND OUT MORE; House Churches is a drop down right under the brick photo. */
+.about .ah{--y:0!important;--py:0!important;height:calc(641 * var(--u));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.about .ah h2{font-size:calc(.066 * var(--c));line-height:1.02;color:#fff;text-wrap:balance}
+.about .ah .more{margin:calc(26 * var(--u)) auto 0;padding:0 34px;min-width:230px;height:59px;gap:12px;font-family:var(--ff);font-size:18px;cursor:pointer;background:rgba(0,0,0,.3);border:2px solid #fff;border-radius:20px;color:#fff}
+.about .ah .more:hover,.about .ah .more:focus-visible{background:#4F7FC1;border-color:#4F7FC1;color:#fff}
+.about .ah .more:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.more i{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .4s ease}
+.more[aria-expanded="true"] i{transform:translateY(2px) rotate(225deg)}
+.about .in>.ah{z-index:1}
+@media (min-width:768px){.about .in>.ah{align-self:center;justify-self:center;margin-top:0}}
+@media (max-width:767px){.about .ah{height:calc(300 * var(--m))}.about .ah h2{font-size:calc(40 * var(--m))}.about .ah .more{margin-top:calc(18 * var(--m));height:calc(52 * var(--m));font-size:16px}}
+.js .drop{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .6s cubic-bezier(.22,.8,.3,1),visibility 0s .6s}
+.js .drop.open{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .6s cubic-bezier(.22,.8,.3,1),visibility 0s 0s}
+.js .drop>.hbg{min-height:0;overflow:hidden}
+.more{display:none}.js .more{display:flex}
+@media (prefers-reduced-motion:reduce){.js .drop,.js .drop.open,.more i{transition:none}}
+.dclose{display:flex;justify-content:center;padding:0 0 calc(56 * var(--u))}
+.dclose .tb{width:220px;height:48px;background:none;color:#fff;border:1px solid #fff;border-radius:7.2px;font-family:var(--ff);cursor:pointer}
+.dclose .tb:hover{background:#fff;color:#000}
+.dclose .tb:focus-visible{outline:2px solid #fff;outline-offset:3px}
+@media (max-width:767px){.dclose{padding-bottom:calc(40 * var(--m))}}
+.kbl{display:block;margin-top:10px;color:inherit;font-weight:700;text-underline-offset:3px}
+
+/* v35 (2026-11-12, Kenny's round): blue center logo, COMING UP nav link, welcome + get involved section, footer addresses */
+.logo svg path:last-child{fill:#4F7FC1}
+.nl{display:flex;align-items:center;height:30px;color:#fff;text-decoration:none;font:700 calc(18.39px + .00222 * var(--c))/1.2 var(--ff);letter-spacing:-.01em;text-transform:uppercase}
+.nl:hover,.nl:focus-visible{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:1180px){.nav{gap:22px;margin-left:20px}}
+.now{background:#fff;padding:clamp(56px,7vw,110px) 0 clamp(56px,7vw,100px)}
+.nw{width:min(calc(100vw - 58px),1240px);margin:0 auto}
+.intro{max-width:980px;margin:0 auto;text-align:center;font-size:clamp(22px,2.2vw,32px);line-height:1.3;font-weight:700;letter-spacing:-.015em;text-wrap:balance}
+.now h2{margin-top:clamp(56px,6vw,90px)}
+.evs{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);margin-top:clamp(28px,3vw,44px)}
+.ev{border-top:2px solid #000;padding-top:18px;display:flex;flex-direction:column}
+.ev .when{font-weight:800;font-size:15px;letter-spacing:.08em;color:#36557F}
+.ev h3{margin-top:10px;font-size:clamp(24px,2.2vw,32px);line-height:1.1;font-weight:800;letter-spacing:-.01em}
+.ev p{margin-top:12px}
+.ev .where{margin-top:8px;font-size:16px;color:#444}
+.ev .go{margin-top:auto;height:62px;padding:0 16px;background:#051A33;border-color:#051A33;color:#fff}
+.ev .where{margin-bottom:24px}
+.ev .go:hover{background:#fff;color:#051A33}
+.now .all{margin-top:clamp(28px,3vw,40px);text-align:center;font-weight:800;font-size:17px;letter-spacing:.06em}
+.now .all a{text-underline-offset:4px}
+.hsoon{max-width:640px;margin:calc(36 * var(--u)) auto 0;font-weight:700}
+.ft .fad{display:grid;gap:6px;font-size:16px;line-height:1.35;color:var(--cream)}
+.ft .fad span{display:block}
+.ft .fad b{display:inline-block;min-width:84px;font-weight:800;letter-spacing:.06em;color:#fff}
+.ft .fad a{color:inherit;text-underline-offset:3px}
+@media (min-width:768px) and (max-width:1099px){.ft .in>.fad{grid-column:1/-1;order:2}}
+@media (max-width:767px){
+.evs{grid-template-columns:1fr}
+.ev .go{height:58px;font-size:15px}
+.ft{--psh:1085!important}
+.ft .fad{--py:630!important;font-size:15px;gap:10px}
+.ft .fad b{display:block;min-width:0;font-size:12px}
+.ft .rr{--py:805!important}
+.ft .fn{--py:885!important}
+.ft .c{--py:955!important}
+.ft .kroh{--py:1005!important}
+}
+@media (max-width:374px),(min-width:431px) and (max-width:767px){.ft .in>.fad{grid-column:1/-1;order:2}}
+
+/* v36 footer address: small label over the value, three columns on wide screens */
+.ft .fad,.fw .fad{gap:12px;line-height:1.45}
+.ft .fad b,.fw .fad b{display:block;min-width:0;margin-bottom:4px;font-size:12px;font-weight:800;letter-spacing:.12em;color:rgba(255,255,255,.6)}
+.ft .fad span,.fw .fad span{display:block}
+@media (min-width:768px){.ft .fad,.fw .fad{grid-template-columns:repeat(3,max-content);column-gap:44px;font-size:15px}}
+@media (max-width:767px){.ft .fad br,.fw .fad br{display:none}.ft .fad,.fw .fad{gap:8px}.ft .fad b,.fw .fad b{margin-bottom:2px}}
+/* v37 Site by KROH popup: light panel, navy type */
+.kb{background:rgba(5,26,51,.38)}
+.kb .kbx,.kb .kbx{background:#fff;color:#051A33;border:0;box-shadow:0 24px 60px rgba(5,26,51,.25)}
+.kb .kbn,.kb .kbx strong{color:#051A33}
+.kb .kbp{color:rgba(5,26,51,.75)}
+.kb .kbx .kbr span{color:rgba(5,26,51,.6)}
+.kb .kbm{background:#051A33;color:#fff}
+.kb .kbm:hover{background:#36557F;color:#fff}
+.kb .kbm:focus-visible{outline-color:#051A33}
+.kb .kbx .px{color:rgba(5,26,51,.55)}
+.kb .kbx .px:hover{color:#051A33;background:rgba(5,26,51,.08)}
+
+/* v38 register buttons in the church's blue */
+.ev .go{background:#0B427A;border-color:#0B427A;color:#fff}
+.ev .go:hover{background:#fff;color:#0B427A;box-shadow:inset 0 0 0 2px #0B427A}
+
+/* v39 signups open the church's Planning Center forms (Church Center popup) */
+.kit a.cc{display:flex;align-items:center;justify-content:center;width:100%;height:calc(72 * var(--u));background:#000;color:#fff;border-radius:7.2px;font:700 18px var(--ff);font-size:calc(18 * var(--u));letter-spacing:.36px;text-transform:uppercase;text-decoration:none;cursor:pointer;box-sizing:border-box}
+.kit a.cc:hover{background:#222}
+.form .kit a.cc{height:calc(56 * var(--u));background:#051A33}
+.form .kit a.cc:hover{background:#fff;color:#051A33}
+.kit a.cc:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.pf a.cc{display:inline-flex;align-items:center;justify-content:center;width:auto;height:56px;padding:0 32px;background:var(--navy);color:#fff;border-radius:8px;font:800 14px var(--ff);letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
+.pf a.cc:hover{background:#0a3868}
+.pop .pf a.cc:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+@media (max-width:760px){.kit a.cc{height:calc(64 * var(--m));font-size:16px}.form .kit a.cc{height:54px}.pop .pf a.cc{width:100%}}
