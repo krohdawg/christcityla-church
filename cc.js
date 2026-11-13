@@ -1,9 +1,8 @@
 /* Christ City Church signup popup.
    A copy of Planning Center's own Church Center popup (js.churchcenter.com/modal/v1): same full-screen frame,
    same ready/verified/show/close handshake, so Church Center draws its own card and close button.
-   Changes from theirs: phones stay on our site too (theirs sends phones to a new tab; see sheet() below), and if Church Center
-   never answers within 8 seconds the form opens in a new tab so nobody is left on a spinner.
-   These forms take no payments, so it also runs on http. */
+   Changes from theirs: phones, and any page without https (their popup will not open there), get our own on-site panel, sheet() below.
+   If Church Center never answers within 8 seconds, the panel opens instead, so nobody is left on a spinner or sent to a new tab. */
 (function(){
 var SEL="a[href][data-open-in-church-center-modal='true']";
 var ok=true;
@@ -34,7 +33,7 @@ function open(href){
   window.addEventListener("message",onMsg,false);document.addEventListener("keyup",onKey);
   document.documentElement.style.overflow="hidden";
   fr.src=url;vis(fr,false);vis(bg,true);
-  clearTimeout(timer);timer=setTimeout(function(){var go=url;shut();window.open(go,"_blank")},8000);
+  clearTimeout(timer);timer=setTimeout(function(){var go=url;shut();sheet(go)},8000);
 }
 function shut(){
   clearTimeout(timer);
@@ -49,12 +48,12 @@ var sh=null,sf=null;
 function sheet(href){
   if(!sh){
     var st=document.createElement("style");
-    st.textContent=".ccs{position:fixed;inset:0;z-index:2147483647;display:none;flex-direction:column;background:#fff}.ccs.on{display:flex}.ccs-h{flex:0 0 56px;display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 18px;background:#051A33;color:#fff;font:800 14px/1 Manrope,system-ui,sans-serif;letter-spacing:.12em}.ccs-x{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 12px;border:0;border-radius:8px;background:transparent;color:#fff;font:800 13px/1 Manrope,system-ui,sans-serif;letter-spacing:.12em;cursor:pointer}.ccs-x i{font-style:normal;font-size:24px;font-weight:400;line-height:1}.ccs-x:focus-visible{outline:2px solid #fff;outline-offset:2px}.ccs-w{position:relative;flex:1 1 auto;overflow:hidden;background:#fff}.ccs iframe{position:absolute;left:0;top:0;border:0;display:block;background:#fff;transform-origin:0 0}";
+    st.textContent=".ccs{position:fixed;inset:0;z-index:2147483647;display:none;align-items:center;justify-content:center;background:#fff}.ccs.on{display:flex}.ccs-c{display:flex;flex-direction:column;width:100%;height:100%;background:#fff;overflow:hidden}@media (min-width:640px){.ccs{background:rgba(5,26,51,.72)}.ccs-c{width:560px;height:calc(100% - 48px);max-height:900px;border-radius:12px;box-shadow:0 24px 64px rgba(0,0,0,.35)}}.ccs-h{flex:0 0 56px;display:flex;align-items:center;justify-content:space-between;padding:0 8px 0 18px;background:#051A33;color:#fff;font:800 14px/1 Manrope,system-ui,sans-serif;letter-spacing:.12em}.ccs-x{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 12px;border:0;border-radius:8px;background:transparent;color:#fff;font:800 13px/1 Manrope,system-ui,sans-serif;letter-spacing:.12em;cursor:pointer}.ccs-x i{font-style:normal;font-size:24px;font-weight:400;line-height:1}.ccs-x:focus-visible{outline:2px solid #fff;outline-offset:2px}.ccs-w{position:relative;flex:1 1 auto;overflow:hidden;background:#fff}.ccs iframe{position:absolute;left:0;top:0;border:0;display:block;background:#fff;transform-origin:0 0}";
     document.head.appendChild(st);
     sh=document.createElement("div");sh.className="ccs";sh.setAttribute("role","dialog");sh.setAttribute("aria-modal","true");sh.setAttribute("aria-label","Christ City Church form");
-    sh.innerHTML='<div class="ccs-h"><span>CHRIST CITY</span><button class="ccs-x" type="button" aria-label="Close form">CLOSE <i aria-hidden="true">&times;</i></button></div><div class="ccs-w"><iframe title="Christ City Church form" allow="payment"></iframe></div>';
+    sh.innerHTML='<div class="ccs-c"><div class="ccs-h"><span>CHRIST CITY</span><button class="ccs-x" type="button" aria-label="Close form">CLOSE <i aria-hidden="true">&times;</i></button></div><div class="ccs-w"><iframe title="Christ City Church form" allow="payment"></iframe></div></div>';
     document.body.appendChild(sh);sf=sh.querySelector("iframe");
-    sh.querySelector(".ccs-x").addEventListener("click",unsheet);
+    sh.querySelector(".ccs-x").addEventListener("click",unsheet);sh.addEventListener("click",function(e){if(e.target===sh)unsheet()});
     window.addEventListener("resize",fit);
   }
   lastFocus=document.activeElement;
@@ -74,9 +73,9 @@ function unsheet(){if(!sh)return;sh.classList.remove("on");sf.src="about:blank";
 document.addEventListener("click",function(e){
   var a=e.target&&e.target.closest?e.target.closest(SEL):null;
   if(!a)return;
-  if(!ok||e.metaKey||e.ctrlKey||e.shiftKey||e.button){if(!ok){e.preventDefault();window.open(a.href,"_blank")}return}
+  if(!ok||e.metaKey||e.ctrlKey||e.shiftKey||e.button){if(!ok){e.preventDefault();sheet(a.href)}return}
   e.preventDefault();
-  if(window.innerWidth<640)sheet(a.href);else open(a.href);
+  if(window.innerWidth<640||location.protocol!=="https:")sheet(a.href);else open(a.href);
 });
 window.ChristCityForms={open:open,close:shut,sheet:sheet,unsheet:unsheet};
 })();
