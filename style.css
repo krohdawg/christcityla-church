@@ -34,10 +34,10 @@ img.a,.fill{object-fit:cover}
 /* buttons */
 .hb,.ob,.tb{display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:.02em;text-transform:uppercase;line-height:1.2;transition:background .2s,color .2s}
 .hb{border:2px solid #fff;border-radius:20px;color:#fff}
-.hb:hover{background:#fff;color:#000}
+@media (hover:hover) and (pointer:fine){.hb:hover{background:#fff;color:#000}}
 .ob{border:2px solid #000;border-radius:7.2px;padding:0 10px}
 .tb{border:1px solid #000;border-radius:7.2px}
-.ob:hover,.tb:hover{background:#000;color:#fff}
+@media (hover:hover) and (pointer:fine){.ob:hover,.tb:hover{background:#000;color:#fff}}
 
 /* header */
 .hd{position:absolute;z-index:20;left:0;right:0;top:calc(40px + (100vw - 1440px) * .0107);height:74px;display:flex;align-items:center;padding-left:calc(29px + (100vw - 1440px) * .0196);color:#fff}
@@ -52,10 +52,10 @@ img.a,.fill{object-fit:cover}
 .menu::after{content:"";position:absolute;left:0;right:0;top:12px;bottom:0;background:#fff;border:1px solid rgba(0,0,0,.14);z-index:-1}
 .menu a{text-shadow:none;position:relative;display:block;padding:9px 22px;color:#000;text-decoration:none;font-size:calc(18.39px + .00222 * var(--mc));line-height:1.19;font-weight:800;letter-spacing:-.01em}
 .menu a:first-child{margin-top:8px}.menu a:last-child{margin-bottom:8px}
-.menu a:hover,.menu a:focus-visible{text-decoration:underline;text-underline-offset:3px}
-.dd.open .menu,.dd:hover .menu,.dd:focus-within .menu{visibility:visible;opacity:1;transition-delay:0s}
+.menu a:focus-visible{text-decoration:underline;text-underline-offset:3px}@media (hover:hover) and (pointer:fine){.menu a:hover{text-decoration:underline;text-underline-offset:3px}}
+.dd.open .menu,.dd:focus-within .menu{visibility:visible;opacity:1;transition-delay:0s}@media (hover:hover) and (pointer:fine){.dd:hover .menu{visibility:visible;opacity:1;transition-delay:0s}}
 .give{position:absolute;right:calc(28px + (100vw - 1440px) * .0205);top:0;width:176px;height:74px;border:2px solid #fff;border-radius:20px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-weight:700;font-size:18px;color:#fff;transition:background .2s,color .2s}
-.give:hover{background:#fff;color:#000}
+@media (hover:hover) and (pointer:fine){.give:hover{background:#fff;color:#000}}
 .burger{display:none}
 .sheet{display:none}
 
@@ -71,7 +71,7 @@ img.a,.fill{object-fit:cover}
 .logo svg path:first-child{fill:#fff}
 .logo svg path:last-child{fill:#fff}
 .hero .hb,.give{transition:background .25s ease,border-color .25s ease,color .25s ease}
-.hero .hb:hover,.give:hover{background:#4F7FC1;border-color:#4F7FC1;color:#fff}
+@media (hover:hover) and (pointer:fine){.hero .hb:hover,.give:hover{background:#4F7FC1;border-color:#4F7FC1;color:#fff}}
 .hero .in{z-index:1}
 .hero h1{font-weight:800}
 .l1,.l2{display:block;text-align:center;line-height:1;letter-spacing:-.01em;white-space:nowrap}
@@ -85,7 +85,7 @@ img.a,.fill{object-fit:cover}
 .pick button.sel{width:100%;height:100%;background:#000;color:#fff;border:0;border-radius:10px;font:700 16px/1 var(--ff);letter-spacing:.5px;text-transform:uppercase;cursor:pointer}
 .opts{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;color:#000;z-index:5;border-radius:0 0 10px 10px;overflow:hidden}
 .opts a{display:block;padding:14px 20px;text-decoration:none;font-size:16px;border-top:1px solid var(--line)}
-.opts a:hover{background:var(--cream)}
+@media (hover:hover) and (pointer:fine){.opts a:hover{background:var(--cream)}}
 .pick.open .opts{display:block}
 .pick.open .sel{border-radius:10px 10px 0 0}
 
@@ -98,7 +98,7 @@ img.a,.fill{object-fit:cover}
 .form .kit input::placeholder{color:#555}
 .kit input{display:block;width:100%;height:calc(74 * var(--u));margin:0 0 calc(18 * var(--u));padding:0 20px;background:#fff;border:1px solid var(--line);border-radius:0;font:400 18px var(--ff);letter-spacing:-.02em;color:#000}
 .kit button{display:block;width:100%;height:calc(72 * var(--u));background:#000;color:#fff;border:0;border-radius:7.2px;font:700 18px var(--ff);letter-spacing:.36px;text-transform:uppercase;cursor:pointer}
-.kit button:hover{background:#222}
+@media (hover:hover) and (pointer:fine){.kit button:hover{background:#222}}
 .sent{font-size:22px;font-weight:700;text-align:center}
 
 /* first night strip: slow scroll to the left, loops forever */
@@ -160,7 +160,7 @@ img.a,.fill{object-fit:cover}
 .fc a{display:block;color:var(--cream);text-decoration:underline;text-underline-offset:3px;line-height:1.19}
 .fn{display:block}
 .kroh{text-align:left;padding:0;background:none;border:0;cursor:pointer;font-family:var(--ff);color:var(--cream);text-decoration:underline;text-underline-offset:3px;font-weight:700;letter-spacing:.04em}
-.kroh:hover{color:#fff}
+@media (hover:hover) and (pointer:fine){.kroh:hover{color:#fff}}
 
 /* KROH lightbox */
 .kb{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;padding:16px}
@@ -169,7 +169,7 @@ img.a,.fill{object-fit:cover}
 .kbx strong{display:block;font-size:30px;line-height:1.05;font-weight:800;letter-spacing:-.01em}
 .kbx p{margin:16px auto 26px;max-width:330px;font-size:18px;line-height:1.4;color:var(--cream)}
 .kbm{display:flex;align-items:center;justify-content:center;height:56px;background:#fff;color:#000;border-radius:7.2px;text-decoration:none;font-weight:800;font-size:16px;letter-spacing:.06em}
-.kbm:hover{background:var(--cream)}
+@media (hover:hover) and (pointer:fine){.kbm:hover{background:var(--cream)}}
 .kbx span{display:block;margin-top:14px;font-size:15px;color:rgba(255,255,255,.7)}
 .kbx .px{color:#999}
 
@@ -257,11 +257,11 @@ body{font-size:16px}
 .wn::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.42)}
 .wn .in{z-index:1}
 .wn .ob{border-color:#fff;color:#fff}
-.wn .ob:hover{background:#fff;color:#000}
+@media (hover:hover) and (pointer:fine){.wn .ob:hover{background:#fff;color:#000}}
 /* v15 text-only popup (no photos), site fonts and colors */
 .pb{position:relative;width:min(640px,100%);max-height:96vh;overflow:auto;background:var(--cream);border-top:6px solid var(--navy);box-shadow:0 24px 70px rgba(0,0,0,.28)}
 .pb .px{position:absolute;top:8px;right:8px;padding:8px 14px;border:0;background:none;color:#6b6b6b;font:400 28px/1 var(--ff);cursor:pointer}
-.pb .px:hover{color:var(--navy)}
+@media (hover:hover) and (pointer:fine){.pb .px:hover{color:var(--navy)}}
 .pt{padding:68px 56px 60px;text-align:center;font-family:var(--ff);letter-spacing:0}
 .pt .eb{display:flex;justify-content:center;align-items:center;gap:14px;margin:0;font-size:14px;line-height:1;font-weight:700;letter-spacing:.18em;color:var(--navy)}
 .pt .eb i{width:28px;height:1px;background:var(--navy);opacity:.45}
@@ -272,7 +272,7 @@ body{font-size:16px}
 .pf input{flex:1;min-width:0;height:56px;padding:0 18px;background:#fff;border:1px solid rgba(0,0,0,.22);border-radius:8px;font:500 17px var(--ff);color:#1a1a1a}
 .pf input:focus{outline:2px solid var(--navy);outline-offset:1px;border-color:var(--navy)}
 .pf button{height:56px;padding:0 28px;background:var(--navy);color:#fff;border:0;border-radius:8px;font:800 14px var(--ff);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
-.pf button:hover{background:#0a3868}
+@media (hover:hover) and (pointer:fine){.pf button:hover{background:#0a3868}}
 .pf .sent{width:100%;margin:0;color:var(--navy);font-weight:700;font-size:18px}
 @media (max-width:767px){
 .pt{padding:56px 24px 36px}
@@ -302,7 +302,7 @@ body{font-size:16px}
 /* v15 KROH popup redesign */
 .kb .kbx{width:min(480px,100%);padding:36px 40px 40px;text-align:left;border:1px solid rgba(255,255,255,.18);border-radius:0}
 .kb .kbx .px{position:absolute;top:10px;right:10px;width:44px;height:44px;padding:0;margin:0;display:flex;align-items:center;justify-content:center;background:none;border:0;border-radius:50%;color:rgba(255,255,255,.6);cursor:pointer;transition:color .15s,background .15s}
-.kb .kbx .px:hover{color:#fff;background:rgba(255,255,255,.1)}
+@media (hover:hover) and (pointer:fine){.kb .kbx .px:hover{color:#fff;background:rgba(255,255,255,.1)}}
 .kb .kbx .px:focus-visible,.kb .kbm:focus-visible{outline:2px solid #fff;outline-offset:2px}
 .kb .kbn{margin:0 0 28px;max-width:none;font-size:15px;line-height:1;font-weight:800;letter-spacing:.32em;color:#fff}
 .kb .kbx strong{font-size:44px;line-height:1;letter-spacing:-.015em;font-weight:800;text-align:left}
@@ -431,7 +431,7 @@ p,li,blockquote{text-wrap:pretty}
 .blue.find .a:not(img){justify-self:stretch;max-width:none}
 .blue.find p{font-weight:500;letter-spacing:-.02em;text-transform:none;max-width:430px}
 .blue.find .pick button.sel{background:#000;border-radius:7.2px;font:800 18px/1 var(--ff);letter-spacing:.02em;transition:background .2s}
-.blue.find .pick button.sel:hover,.blue.find .pick.open button.sel{background:var(--navy)}
+.blue.find .pick.open button.sel{background:var(--navy)}@media (hover:hover) and (pointer:fine){.blue.find .pick button.sel:hover{background:var(--navy)}}
 .blue.find .a.pick{max-width:420px;justify-self:start}
 .blue.find .opts{border-radius:0 0 7.2px 7.2px;box-shadow:0 8px 24px rgba(0,0,0,.12)}
 .blue.find .pick.open .sel{border-radius:7.2px 7.2px 0 0}
@@ -448,7 +448,7 @@ p,li,blockquote{text-wrap:pretty}
 .pop{background:rgba(0,0,0,.42)}
 .pop .pb{width:min(560px,100%);border-top:0;border-radius:0;background:#fff;box-shadow:none}
 .pop .pb .px{top:8px;right:8px;width:44px;height:44px;padding:0;display:flex;align-items:center;justify-content:center;border-radius:50%;background:none;color:#000;font:500 30px/1 var(--ff);transition:background .2s,color .2s}
-.pop .pb .px:hover{background:#000;color:#fff}
+@media (hover:hover) and (pointer:fine){.pop .pb .px:hover{background:#000;color:#fff}}
 .pop .pb .px:focus-visible,.pop .pf button:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
 .pop .pt{padding:72px 56px 56px;letter-spacing:-.02em}
 .pop .pt h2{margin:0;font-size:52px;white-space:nowrap;line-height:1;font-weight:800;letter-spacing:-.01em;text-transform:uppercase;color:#000}
@@ -458,7 +458,7 @@ p,li,blockquote{text-wrap:pretty}
 .pop .pf input::placeholder{color:#555}
 .pop .pf input:focus{outline:2px solid var(--navy);outline-offset:0;border-color:var(--navy)}
 .pop .pf button{display:block;width:100%;height:56px;padding:0;background:#000;color:#fff;border:0;border-radius:7.2px;font:700 18px var(--ff);letter-spacing:.36px;text-transform:uppercase;cursor:pointer}
-.pop .pf button:hover{background:#222}
+@media (hover:hover) and (pointer:fine){.pop .pf button:hover{background:#222}}
 .pop .pf .sent{color:#000}
 @media (max-width:767px){
 .pop .pt{padding:60px 24px 32px}
@@ -519,7 +519,7 @@ p,li,blockquote{text-wrap:pretty}
 .hbg h2,.hbg h3,.hbg p,.hbg span{color:#fff}
 .hbg .steps li{border-top-color:#fff}
 .hbg .tb{border-color:#fff;color:#fff}
-.hbg .tb:hover{background:#fff;color:#000}
+@media (hover:hover) and (pointer:fine){.hbg .tb:hover{background:#fff;color:#000}}
 
 /* v15 caption under Who We Are photo */
 .cap{text-align:right;font-weight:700}
@@ -534,7 +534,7 @@ p,li,blockquote{text-wrap:pretty}
    4 BLUE    one bar a page: the ticker under the hero here, the header bar on the inner pages. Plus hover and keyboard focus.
    5 NO FOLDS  Find Belonging is open (title, line, Find a House Church). The .fold and .fb rules above are no longer used. */
 .about h2{color:#000}
-.kit button:hover,.pop .pf button:hover{background:var(--navy)}
+@media (hover:hover) and (pointer:fine){.kit button:hover,.pop .pf button:hover{background:var(--navy)}}
 .find{background:#fff;color:#000;overflow:visible;z-index:6}
 .find .fh{width:var(--c);margin:0 auto;padding:calc(46 * var(--u)) 0;display:grid;grid-template-columns:calc(510 * var(--u)) minmax(0,1fr) calc(300 * var(--u));grid-template-areas:"t l b";align-items:center}
 .find .fh h2{grid-area:t;margin:0}
@@ -592,7 +592,7 @@ p,li,blockquote{text-wrap:pretty}
 .track img{width:clamp(80px,calc(122 * var(--v)),151px)}
 @media (max-width:767px){.ticker{height:calc(40 * var(--m))}.run span{font-size:14px}.strip{height:calc(140 * var(--m))}.track img{width:calc(100 * var(--m))}}
 .form .kit button{background:#051A33}
-.form .kit button:hover{background:#fff;color:#051A33}
+@media (hover:hover) and (pointer:fine){.form .kit button:hover{background:#fff;color:#051A33}}
 .about{background:#4a73ad}
 .about .ph{mix-blend-mode:multiply}
 .about h2{color:#fff}
@@ -628,7 +628,7 @@ p,li,blockquote{text-wrap:pretty}
 .about .ah{--y:0!important;--py:0!important;height:calc(641 * var(--u));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .about .ah h2{font-size:calc(.066 * var(--c));line-height:1.02;color:#fff;text-wrap:balance}
 .about .ah .more{margin:calc(26 * var(--u)) auto 0;padding:0 34px;min-width:230px;height:59px;gap:12px;font-family:var(--ff);font-size:18px;cursor:pointer;background:rgba(0,0,0,.3);border:2px solid #fff;border-radius:20px;color:#fff}
-.about .ah .more:hover,.about .ah .more:focus-visible{background:#4F7FC1;border-color:#4F7FC1;color:#fff}
+.about .ah .more:focus-visible{background:#4F7FC1;border-color:#4F7FC1;color:#fff}@media (hover:hover) and (pointer:fine){.about .ah .more:hover{background:#4F7FC1;border-color:#4F7FC1;color:#fff}}
 .about .ah .more:focus-visible{outline:2px solid #fff;outline-offset:3px}
 .more i{width:9px;height:9px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .4s ease}
 .more[aria-expanded="true"] i{transform:translateY(2px) rotate(225deg)}
@@ -642,7 +642,7 @@ p,li,blockquote{text-wrap:pretty}
 @media (prefers-reduced-motion:reduce){.js .drop,.js .drop.open,.more i{transition:none}}
 .dclose{display:flex;justify-content:center;padding:0 0 calc(56 * var(--u))}
 .dclose .tb{width:220px;height:48px;background:none;color:#fff;border:1px solid #fff;border-radius:7.2px;font-family:var(--ff);cursor:pointer}
-.dclose .tb:hover{background:#fff;color:#000}
+@media (hover:hover) and (pointer:fine){.dclose .tb:hover{background:#fff;color:#000}}
 .dclose .tb:focus-visible{outline:2px solid #fff;outline-offset:3px}
 @media (max-width:767px){.dclose{padding-bottom:calc(40 * var(--m))}}
 .kbl{display:block;margin-top:10px;color:inherit;font-weight:700;text-underline-offset:3px}
@@ -650,7 +650,7 @@ p,li,blockquote{text-wrap:pretty}
 /* v35 (2026-11-12, Kenny's round): blue center logo, COMING UP nav link, welcome + get involved section, footer addresses */
 .logo svg path:last-child{fill:#4F7FC1}
 .nl{display:flex;align-items:center;height:30px;color:#fff;text-decoration:none;font:700 calc(18.39px + .00222 * var(--c))/1.2 var(--ff);letter-spacing:-.01em;text-transform:uppercase}
-.nl:hover,.nl:focus-visible{text-decoration:underline;text-underline-offset:4px}
+.nl:focus-visible{text-decoration:underline;text-underline-offset:4px}@media (hover:hover) and (pointer:fine){.nl:hover{text-decoration:underline;text-underline-offset:4px}}
 @media (max-width:1180px){.nav{gap:22px;margin-left:20px}}
 .now{background:#fff;padding:clamp(56px,7vw,110px) 0 clamp(56px,7vw,100px)}
 .nw{width:min(calc(100vw - 58px),1240px);margin:0 auto}
@@ -664,7 +664,7 @@ p,li,blockquote{text-wrap:pretty}
 .ev .where{margin-top:8px;font-size:16px;color:#444}
 .ev .go{margin-top:auto;height:62px;padding:0 16px;background:#051A33;border-color:#051A33;color:#fff}
 .ev .where{margin-bottom:24px}
-.ev .go:hover{background:#fff;color:#051A33}
+@media (hover:hover) and (pointer:fine){.ev .go:hover{background:#fff;color:#051A33}}
 .now .all{margin-top:clamp(28px,3vw,40px);text-align:center;font-weight:800;font-size:17px;letter-spacing:.06em}
 .now .all a{text-underline-offset:4px}
 .hsoon{max-width:640px;margin:calc(36 * var(--u)) auto 0;font-weight:700}
@@ -699,22 +699,28 @@ p,li,blockquote{text-wrap:pretty}
 .kb .kbp{color:rgba(5,26,51,.75)}
 .kb .kbx .kbr span{color:rgba(5,26,51,.6)}
 .kb .kbm{background:#051A33;color:#fff}
-.kb .kbm:hover{background:#36557F;color:#fff}
+@media (hover:hover) and (pointer:fine){.kb .kbm:hover{background:#36557F;color:#fff}}
 .kb .kbm:focus-visible{outline-color:#051A33}
 .kb .kbx .px{color:rgba(5,26,51,.55)}
-.kb .kbx .px:hover{color:#051A33;background:rgba(5,26,51,.08)}
+@media (hover:hover) and (pointer:fine){.kb .kbx .px:hover{color:#051A33;background:rgba(5,26,51,.08)}}
 
 /* v38 register buttons in the church's blue */
 .ev .go{background:#0B427A;border-color:#0B427A;color:#fff}
-.ev .go:hover{background:#fff;color:#0B427A;box-shadow:inset 0 0 0 2px #0B427A}
+@media (hover:hover) and (pointer:fine){.ev .go:hover{background:#fff;color:#0B427A;box-shadow:inset 0 0 0 2px #0B427A}}
 
 /* v39 signups open the church's Planning Center forms (Church Center popup) */
 .kit a.cc{display:flex;align-items:center;justify-content:center;width:100%;height:calc(72 * var(--u));background:#000;color:#fff;border-radius:7.2px;font:700 18px var(--ff);font-size:calc(18 * var(--u));letter-spacing:.36px;text-transform:uppercase;text-decoration:none;cursor:pointer;box-sizing:border-box}
-.kit a.cc:hover{background:#222}
+@media (hover:hover) and (pointer:fine){.kit a.cc:hover{background:#222}}
 .form .kit a.cc{height:calc(56 * var(--u));background:#051A33}
-.form .kit a.cc:hover{background:#fff;color:#051A33}
+@media (hover:hover) and (pointer:fine){.form .kit a.cc:hover{background:#fff;color:#051A33}}
 .kit a.cc:focus-visible{outline:2px solid #fff;outline-offset:3px}
 .pf a.cc{display:inline-flex;align-items:center;justify-content:center;width:auto;height:56px;padding:0 32px;background:var(--navy);color:#fff;border-radius:8px;font:800 14px var(--ff);letter-spacing:.12em;text-transform:uppercase;text-decoration:none}
-.pf a.cc:hover{background:#0a3868}
+@media (hover:hover) and (pointer:fine){.pf a.cc:hover{background:#0a3868}}
 .pop .pf a.cc:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
 @media (max-width:760px){.kit a.cc{height:calc(64 * var(--m));font-size:16px}.form .kit a.cc{height:54px}.pop .pf a.cc{width:100%}}
+
+/* mobile-native (Emil Kowalski skill), 2026-11-13: feel like an app on a phone */
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+a,button,[role="button"],summary,label,input[type="submit"],input[type="button"]{touch-action:manipulation}
+button,[role="button"],summary{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+@media (hover:none){a:active,button:active,[role="button"]:active,summary:active{opacity:.72}}
