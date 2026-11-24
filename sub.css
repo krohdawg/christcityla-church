@@ -399,3 +399,14 @@ html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-
 a,button,[role="button"],summary,label,input[type="submit"],input[type="button"]{touch-action:manipulation}
 button,[role="button"],summary{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 @media (hover:none){a:active,button:active,[role="button"]:active,summary:active{opacity:.72}}
+
+/* 2026-11-23: CONNECT got a 5th link (Church Center), phone footer pushes VISIT and below down 70 */
+@media (min-width:375px) and (max-width:430px){
+.fw{height:calc(1205 * var(--fm))}
+.fw .fc:nth-of-type(3){top:calc(570 * var(--fm))}
+.fw .fad{top:calc(760 * var(--fm))}
+.fw .rr{top:calc(935 * var(--fm))}
+.fw .fn{top:calc(1005 * var(--fm))}
+.fw .tg{top:calc(1135 * var(--fm))}
+.fw .kroh{top:calc(1175 * var(--fm))}
+}
