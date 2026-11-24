@@ -410,3 +410,6 @@ button,[role="button"],summary{-webkit-user-select:none;user-select:none;-webkit
 .fw .tg{top:calc(1135 * var(--fm))}
 .fw .kroh{top:calc(1175 * var(--fm))}
 }
+
+/* 2026-11-23: phone numbers never split across two lines */
+a[href^="sms:"]{white-space:nowrap}
